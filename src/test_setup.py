@@ -68,6 +68,7 @@ def main():
     print("=" * 50)
     print("🎉 Hello World! Environment setup test completed!")
     print("🎯 Your SupportVectors project environment is ready to use!")
+    print("🎯 Your SupportVectors project environment is ready to use!")
 
 if __name__ == "__main__":
     main()
