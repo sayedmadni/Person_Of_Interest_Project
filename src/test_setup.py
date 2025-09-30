@@ -73,6 +73,7 @@ def main():
 
     print("🎯 Anurag is saying Hello World!")
     print("🎯 Anurag is saying Hello World!")
+    print("Hello World from Deepseek - Anurag here!")
 
 if __name__ == "__main__":
     main()
