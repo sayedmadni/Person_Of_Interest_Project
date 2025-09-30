@@ -69,5 +69,14 @@ def main():
     print("🎉 Hello World! Environment setup test completed!")
     print("🎯 Your SupportVectors project environment is ready to use!")
 
+
 if __name__ == "__main__":
     main()
+
+# Sangeetha         TailScale VPN                                        Farhan 
+#+----------------+                  +----------------+                  +------------------------+
+#| deepseek server| -----------------|Laptop:CursorIDE|------------------|https://github.com/.....|
+#+----------------+                  +----------------+                  +------------------------+
+#                    SSH Tunnel           UV install                    GitHub account. clone, merge, pull, push etc
+#                    Pure SSH/SCP
+#                    ssh sandeep@100.1.2.3   
