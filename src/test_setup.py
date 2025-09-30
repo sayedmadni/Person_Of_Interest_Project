@@ -72,6 +72,7 @@ def main():
     print("🎯 Your SupportVectors project environment is ready to use!")
 
     print("🎯 Anurag is saying Hello World!")
+    print("🎯 Anurag is saying Hello World!")
 
 if __name__ == "__main__":
     main()
