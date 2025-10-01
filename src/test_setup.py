@@ -68,6 +68,22 @@ def main():
     print("=" * 50)
     print("🎉 Hello World! Environment setup test completed!")
     print("🎯 Your SupportVectors project environment is ready to use!")
+    print("🎉 Hello World! Environment setup test completed!")
+    print("🎯 Your SupportVectors project environment is ready to use!")
+
+    print("🎯 Anurag is saying Hello World!")
+    print("🎯 Anurag is saying Hello World!")
+    print("Hello World from Deepseek - Anurag here!")
+
 
 if __name__ == "__main__":
     main()
+
+# Sangeetha         TailScale VPN                                        Farhan 
+#+----------------+                  +----------------+                  +------------------------+
+#| deepseek server| -----------------|Laptop:CursorIDE|------------------|https://github.com/.....|
+#+----------------+                  +----------------+                  +------------------------+
+#                    SSH Tunnel           UV install                    GitHub account. clone, merge, pull, push etc
+#                    Pure SSH/SCP
+#                    ssh sandeep@100.1.2.3   
+
