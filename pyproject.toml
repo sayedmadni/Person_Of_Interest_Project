@@ -6,6 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "svlearn-bootcamp>=0.1.7",
+    "sentence-transformers>=2.6",
+    "datasets>=2.20",
+    "pillow>=10.0"           # images (PIL) if you load/resize pictures
 ]
 
 [build-system]
@@ -25,3 +28,4 @@ include = [
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/Image_Search"]
+
