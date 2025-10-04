@@ -25,13 +25,15 @@ from datasets import load_dataset
 from tqdm import tqdm 
 import streamlit as st
 from sklearn.metrics.pairwise import cosine_similarity
+import glob
+import os
 
 # =============================================================================
 # CONFIGURATION
 # =============================================================================
 
 # Project directories
-data_dir = Path('/home/anuragd/labwork/Person_Of_Interest_Project').expanduser()
+data_dir = Path('/home/sayedf/LLM_Bootcamp/Person_Of_Interest_Project').expanduser()
 img_dir = data_dir / "docs/images/celebA"
 img_dir.mkdir(parents=True, exist_ok=True)
 
@@ -162,7 +164,36 @@ def run_search_app():
     model, meta, vecs = load_model_and_data()
     print(f"✅ Model and data loaded")
     # Streamlit UI
-    st.title("🔍 Text → Image Search")
+    col1, col2 = st.columns([0.8, 0.2]) # Adjust widths as needed
+
+    with col1:
+        st.title("AI Search")
+    with col2:
+        toggle_state = st.toggle("View gallery of Celebrities", "docs/images/celebA") 
+
+    st.divider()
+    
+    if toggle_state:
+        with st.spinner("Loading gallery..."):
+            try:
+                image_files = glob.glob(os.path.join(img_dir, "*.jpg"))
+                with st.container(height=500):
+                    # Display each image with a caption
+                    if image_files:
+                        # Define the number of columns
+                        cols = st.columns(3) # Creates a 3-column grid
+                        
+                        for i, image_file in enumerate(image_files):
+                            with cols[i % len(cols)]:
+                                caption = os.path.basename(image_file)
+                                st.image(image_file, caption=caption)
+                    else:
+                        st.write("No images found in the 'docs/images/celebA' directory.")
+            except Exception as e:
+                st.error(f"❌ Error loading gallery: {e}")
+
+
+    st.header("🔍 Text → Image Search")
     st.markdown("Describe an image and find similar celebrity photos!")
     
     # Display dataset info
@@ -183,7 +214,7 @@ def run_search_app():
                 sims = cosine_similarity(qv, vecs).ravel()
                 
                 # Get top-k most similar images
-                top = sims.argsort()[::-1][:k]
+                top = sims.argsort()[::-1][:k]   
                 
                 # Display results in a grid
                 cols = st.columns(min(k, 3))
@@ -196,6 +227,10 @@ def run_search_app():
                             st.caption(f"Similarity: {sims[j]:.3f}")
                         else:
                             st.error(f"Image not found: {img_path}")
+
+                tab1, tab2 = st.tabs(["Chart", "Dataframe"])
+                tab1.line_chart(sims, height=250)
+                tab2.dataframe(meta.iloc[top], height=250, use_container_width=True)
                             
             except Exception as e:
                 st.error(f"❌ Search error: {e}")
