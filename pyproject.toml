@@ -7,8 +7,9 @@ requires-python = ">=3.12"
 dependencies = [
     "svlearn-bootcamp>=0.1.7",
     "sentence-transformers>=2.6",
-    "datasets>=2.20",
-    "pillow>=10.0"           # images (PIL) if you load/resize pictures
+    "datasets>=2.20", # images (PIL) if you load/resize pictures
+    "pillow>=10.0",
+    "numpy>=2.3.3",
 ]
 
 [build-system]
